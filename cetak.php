@@ -4,7 +4,7 @@ session_start();
 // include 'header.php';
 include 'Invoice.php';
 require_once('vendor/autoload.php');
-$templateProcessor = new \PhpOffice\PhpWord\templateProcessor('Template_cetak.docx');
+$templateProcessor = new \PhpOffice\PhpWord\templateProcessor('TemplateCetak2.docx');
 $invoice = new Invoice();
 $invoice->checkLoggedIn();
 if (!empty($_GET['invoice_id']) && $_GET['invoice_id']) {
@@ -17,8 +17,7 @@ $invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceValues['order_date']));
 // $invoiceValues['order_receiver_address'];
 // $invoiceValues['order_id'];
 // $invoiceDate;
-// $count = 0;
-// foreach ($invoiceItems as $invoiceItem) {
+$count = 1;
 // $count++;
 // $invoiceItem["item_code"];
 // $invoiceItem["item_name"];
@@ -33,36 +32,47 @@ $invoiceDate = date("d/M/Y, H:i:s", strtotime($invoiceValues['order_date']));
 
 // var_dump($invoiceItem);
 // die();
-// };
-$templateProcessor->setValues(
-    [
-        'NAMACUST' => 'TESSSS',
-        'ALAMAT_CUST' => $invoiceValues['order_receiver_address'],
-    ]
-);
+// $templateProcessor->setValues(
+//     [
+//         'NAMACUST' => $invoiceValues['order_receiver_name'],
+//         'ALAMAT_CUST' => $invoiceValues['order_receiver_address'],
+//         'INVOICE_DATE' => $invoiceDate
+//     ]
+// );
 
-$pathSave = 'Invoicexxx.docx';
-$templateProcessor->saveAs($pathSave);
+foreach ($invoiceItems as $invoiceItem) {
+    // $templateProcessor->setValues(
+    //     [
+    //         // Item Perulangan
+    //         'NO' => $count++,
+    //         'ITEM' => $invoiceItem["item_name"],
+    //         'PRICE' => $invoiceItem["order_item_price"],
+    //         'QTY' => $invoiceItem["order_item_quantity"],
+    //         'AMOUNT' => $invoiceItem["order_item_final_amount"],
+    //         'SUBTOTAL' => $invoiceValues['order_total_before_tax'],
+    //         'TAX' => $invoiceValues['order_total_tax'],
+    //         'TOTAL' => $invoiceValues['order_total_after_tax']
+
+    //     ]
+    // );
+    var_dump($invoiceItem);
+    die();
+};
+// $pathToSave = 'TesInv.docx';
+// $templateProcessor->saveAs($pathToSave);
+
+
 
 // header('content-Description: File Transfer');
-// header('content-Disposition: attchment; Inv_xx.docx');
+// header('content-Disposition: attchment; filename=TesInv.docx');
 // header('content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-// readfile($pathSave);
+// readfile($pathToSave);
 
 // header('content-Description: File Transfer');
 // header("Content-type: application/msword");
 // header("Content-disposition: inline; filename=Invoice.docx");
 // header("Content-length: " . strlen($document));
 // echo $document;
-
-
-// memanggil dan membaca template
-// isi dokumen dinyatakan dalam bentuk string
-// $document = file_get_contents("Template_cetak.rtf");
-// $document3 = str_replace("#NAMA_CUST", $invoiceValues['order_receiver_name'], $document);
-// $document = str_replace("#ALAMAT_CUST", $invoiceValues['order_receiver_address'], $document);
-// $document = str_replace("#INVOICE_DATE", $invoiceDate, $document);
-
 
 // var_dump($templateProcessor);
 // die();
