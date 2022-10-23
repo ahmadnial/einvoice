@@ -498,7 +498,7 @@ $invoiceFileName = $invoiceValues['order_id'];
                             <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><strong><?= 'Rp.' . $invoiceItem['order_item_price'] ?></strong></p>
                         </td>
                         <td colspan="3" style="width:85.5pt; border-top-style:solid; border-top-width:0; border-right-style:solid; border-right-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:bottom;">
-                            <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><strong><?= $invoiceItem['order_item_quantity'] ?></strong></p>
+                            <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;"><strong><?= $invoiceItem['order_item_quantity']  . $invoiceItem['satuan']  ?></strong></p>
                         </td>
                         <td colspan="4" style="width:123.35pt; border-top-style:solid; border-top-width:0; border-right-style:solid; border-right-width:0.75pt; padding-right:5.03pt; padding-left:5.4pt; vertical-align:bottom;">
                             <p style="margin-top:0pt; margin-bottom:0pt; font-size:11pt;">&nbsp;<strong><?= 'Rp.' . $invoiceItem['order_item_final_amount'] ?></strong></p>
