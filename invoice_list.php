@@ -20,6 +20,7 @@ $invoice->checkLoggedIn();
         <th>Create Date</th>
         <th>Total</th>
         <th>Print</th>
+        <th>Print non-tax</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -35,6 +36,7 @@ $invoice->checkLoggedIn();
                 <td>' . $invoiceDate . '</td>
                 <td>Rp.' . $invoiceDetails["order_total_after_tax"] . '</td>
                 <td><a href="cetak.php?invoice_id=' . $invoiceDetails["order_id"] . '" title="Print Invoice"><button class="btn btn-primary btn-sm"><i class="fa fa-print"></i></button></a></td>
+                <td><a href="cetak-non-tax.php?invoice_id=' . $invoiceDetails["order_id"] . '" title="Print Invoice"><button class="btn btn-warning btn-sm"><i class="fa fa-print"></i></button></a></td>
                 <td><a href="edit_invoice.php?update_id=' . $invoiceDetails["order_id"] . '"  title="Edit Invoice"><button class="btn btn-success btn-sm"><i class="fa fa-edit"></i></button></a></td>
                 <td><a href="delete-invoice.php?order_id=' . $invoiceDetails['order_id'] . '" title="Delete Invoice"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></a></td>
               </tr>

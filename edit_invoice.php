@@ -17,7 +17,7 @@ if (!empty($_GET['update_id']) && $_GET['update_id']) {
 <script src="js/invoice.js"></script>
 <link href="css/style.css" rel="stylesheet">
 <?php include('container.php'); ?>
-<div class="container content-invoice">
+<div class="container-fluid content-invoice">
 	<div class="cards">
 		<div class="card-bodys">
 			<form action="" id="invoice-form" method="post" class="invoice-form" role="form" novalidate="">
@@ -59,11 +59,13 @@ if (!empty($_GET['update_id']) && $_GET['update_id']) {
 											<label class="custom-control-label" for="checkAll"></label>
 										</div>
 									</th>
-									<th width="15%">Item No</th>
-									<th width="38%">Item Name</th>
-									<th width="15%">Quantity</th>
-									<th width="15%">Price</th>
-									<th width="15%">Total</th>
+									<th width="6%">Item No</th>
+									<th width="26%">Item</th>
+									<th width="26%">Description</th>
+									<th width="5%">Quantity</th>
+									<th width="6%">Satuan</th>
+									<th width="15%">Unit Price</th>
+									<th width="15%">Amount</th>
 								</tr>
 								<?php
 								$count = 0;
@@ -79,7 +81,9 @@ if (!empty($_GET['update_id']) && $_GET['update_id']) {
 										</td>
 										<td><input type="text" value="<?php echo $invoiceItem["item_code"]; ?>" name="productCode[]" id="productCode_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>
 										<td><input type="text" value="<?php echo $invoiceItem["item_name"]; ?>" name="productName[]" id="productName_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>
+										<td><input type="text" value="<?php echo $invoiceItem["description"]; ?>" name="desc[]" id="desc_<?php echo $count; ?>" class="form-control" autocomplete="off"></td>
 										<td><input type="number" value="<?php echo $invoiceItem["order_item_quantity"]; ?>" name="quantity[]" id="quantity_<?php echo $count; ?>" class="form-control quantity" autocomplete="off"></td>
+										<td><input type="text" value="<?php echo $invoiceItem["satuan"]; ?>" name="satuan[]" id="satuan_<?php echo $count; ?>" class="form-control satuan" autocomplete="off"></td>
 										<td><input type="number" value="<?php echo $invoiceItem["order_item_price"]; ?>" name="price[]" id="price_<?php echo $count; ?>" class="form-control price" autocomplete="off"></td>
 										<td><input type="number" value="<?php echo $invoiceItem["order_item_final_amount"]; ?>" name="total[]" id="total_<?php echo $count; ?>" class="form-control total" autocomplete="off"></td>
 										<!-- <input type="hidden" value="<?php echo $invoiceItem['order_item_id']; ?>" class="form-control" name="itemId[]"> -->

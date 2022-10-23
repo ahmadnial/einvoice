@@ -13,7 +13,7 @@ if (!empty($_POST['companyName']) && $_POST['companyName']) {
 <script src="js/invoice.js"></script>
 <link href="css/style.css" rel="stylesheet">
 <?php include('container.php'); ?>
-<div class="container content-invoice">
+<div class="container-fluid content-invoice">
    <div class="cards">
       <div class="card-bodys">
          <form action="" id="invoice-form" method="post" class="invoice-form" role="form" novalidate="">
@@ -53,11 +53,13 @@ if (!empty($_POST['companyName']) && $_POST['companyName']) {
                                  <label class="custom-control-label" for="checkAll"></label>
                               </div>
                            </th>
-                           <th width="15%">Item No</th>
-                           <th width="38%">Item Name</th>
-                           <th width="15%">Quantity</th>
-                           <th width="15%">Price</th>
-                           <th width="15%">Total</th>
+                           <th width="6%">Item No</th>
+                           <th width="26%">Item</th>
+                           <th width="26%">Description</th>
+                           <th width="5%">Quantity</th>
+                           <th width="6%">Satuan</th>
+                           <th width="15%">Unit Price</th>
+                           <th width="15%">Amount</th>
                         </tr>
                         <tr>
                            <td>
@@ -68,7 +70,9 @@ if (!empty($_POST['companyName']) && $_POST['companyName']) {
                            </td>
                            <td><input type="text" name="productCode[]" id="productCode_1" class="form-control" autocomplete="off"></td>
                            <td><input type="text" name="productName[]" id="productName_1" class="form-control" autocomplete="off"></td>
+                           <td><input type="text" name="desc[]" id="desc_1" class="form-control desc" autocomplete="off"></td>
                            <td><input type="number" name="quantity[]" id="quantity_1" class="form-control quantity" autocomplete="off"></td>
+                           <td><input type="text" name="satuan[]" id="satuan_1" class="form-control satuan" autocomplete="off"></td>
                            <td><input type="number" name="price[]" id="price_1" class="form-control price" autocomplete="off"></td>
                            <td><input type="number" name="total[]" id="total_1" class="form-control total" autocomplete="off"></td>
                         </tr>
@@ -127,7 +131,7 @@ if (!empty($_POST['companyName']) && $_POST['companyName']) {
                      </div>
                   </div>
                   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                     <div class="form-group mt-3 mb-3 ">
+                     <!-- <div class="form-group mt-3 mb-3 ">
                         <label>Amount Paid: &nbsp;</label>
                         <div class="input-group mb-3">
                            <div class="input-group-prepend">
@@ -146,12 +150,12 @@ if (!empty($_POST['companyName']) && $_POST['companyName']) {
                            </div>
                            <input value="" type="number" class="form-control" name="amountDue" id="amountDue" placeholder="Amount Due">
                         </div>
-                     </div>
+                     </div> -->
                   </div>
-                  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                      <h3>Notes: </h3>
                      <div class="form-group">
-                        <textarea class="form-control txt" rows="5" name="notes" id="notes" placeholder="Your Notes"></textarea>
+                        <textarea class="form-control txt" rows="3" name="notes" id="notes" placeholder="Your Notes"></textarea>
                      </div>
                      <br>
                      <div class="form-group">
